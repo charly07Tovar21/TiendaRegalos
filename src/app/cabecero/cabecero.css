@@ -1,0 +1,173 @@
+/* Header Gift Shop - Estilo coherente con logo neón */
+.gift-header {
+    background: linear-gradient(135deg, #2c2c2c 0%, #1e1e1e 50%, #2c2c2c 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #444;
+    backdrop-filter: blur(10px);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    position: relative;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.logo-section img {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    transition: all 0.3s ease;
+}
+
+.logo-section img:hover {
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+    transform: scale(1.05);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #fff;
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.8),
+        0 0 10px rgba(255, 255, 255, 0.6),
+        0 0 15px rgba(255, 255, 255, 0.4);
+    letter-spacing: 2px;
+    font-style: italic;
+    margin: 0;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 0;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50px;
+    padding: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-menu a {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid transparent;
+}
+
+.nav-menu a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
+    border-radius: 25px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #fff;
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.8),
+        0 0 10px rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.nav-menu a:hover::before {
+    opacity: 1;
+}
+
+.nav-menu a.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.6),
+        0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Elemento decorativo superior */
+.header-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.3) 25%, 
+        rgba(255, 255, 255, 0.6) 50%, 
+        rgba(255, 255, 255, 0.3) 75%, 
+        transparent 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0.75rem;
+        border-radius: 25px;
+    }
+
+    .nav-menu a {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-menu a {
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem;
+        margin: 0.25rem 0;
+    }
+
+    .logo-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}

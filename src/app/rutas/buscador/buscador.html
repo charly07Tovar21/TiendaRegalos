@@ -1,0 +1,17 @@
+<div class="buscador-style">
+  <div class="buscador-container">
+    <div class="search-bar">
+      <input type="text" [(ngModel)]="termino" (input)="onBuscar()" placeholder="Buscar producto..." />
+      <span class="search-icon">🔍</span>
+    </div>
+
+    <div class="categorias">
+      <div class="categoria" *ngFor="let cat of categorias">
+        <input type="checkbox" [checked]="cat.activo" (change)="cat.activo = !cat.activo; onCategoriaChange()" />
+        <label>{{ cat.nombre }}</label>
+      </div>
+    </div>
+
+  </div>
+
+</div>

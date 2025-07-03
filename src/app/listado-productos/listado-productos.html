@@ -1,0 +1,26 @@
+<app-buscador (buscar)="actualizarFiltro($event)" (categoriasSeleccionadas)="actualizarCategorias($event)"></app-buscador>
+<div class="listado-productos">
+  <!-- Estado de carga -->
+  <div *ngIf="!isResultLoaded" class="loading-state">
+    <div class="loading-spinner"></div>
+    <p>Cargando productos...</p>
+  </div>
+
+  <div *ngIf="isResultLoaded && listaDeProductos.length === 0" class="empty-state">
+    <p>No hay productos disponibles.</p>
+  </div>
+
+  <div *ngIf="isResultLoaded && listaDeProductos.length > 0" class="productos-grid">
+    <div *ngFor="let producto of productosFiltrados()" class="producto-card" (click)="obtenerProducto(producto)">
+      <img *ngIf="producto.imagen_producto" [src]="producto.imagen_producto" />
+      <div *ngIf="!producto.imagen_producto" class="producto-placeholder">
+        <span>Sin imagen</span>
+      </div>
+
+      <h3>{{ producto.nombreProducto }}</h3>
+      <p>{{ producto.descripcion }}</p>
+      <strong>${{ producto.precioProducto }} MXN</strong>
+    </div>
+  </div>
+
+</div>
